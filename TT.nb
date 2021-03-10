@@ -1,0 +1,457 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17833,        449]
+NotebookOptionsPosition[     16829,        427]
+NotebookOutlinePosition[     17172,        442]
+CellTagsIndexPosition[     17129,        439]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Late 15th century\>\"", ",", "\"\<Portugal\>\"", ",", 
+        "\"\<Spain\>\"", ",", "\"\<Global empire and trade\>\"", ",", 
+        "\"\<No war\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<First half of 16th century\>\"", ",", "\"\<France\>\"", ",", 
+        "\"\<Hapsburgs\>\"", ",", "\"\<Land power in Western Europe\>\"", 
+        ",", "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<16th and 17th centuries\>\"", ",", "\"\<Hapsburgs\>\"", ",", 
+        "\"\<Ottoman Empire\>\"", ",", 
+        "\"\<Land power in central and Eastern Europe, sea power in the \
+Mediterranean\>\"", ",", "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<First half of 17th century\>\"", ",", "\"\<Hapsburgs\>\"", ",", 
+        "\"\<Sweden\>\"", ",", 
+        "\"\<Land and sea power in northern Europe\>\"", ",", "\"\<War\>\""}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Mid- to late 17th century\>\"", ",", "\"\<Dutch Republic\>\"", 
+        ",", "\"\<England\>\"", ",", 
+        "\"\<Global empire, sea power and trade\>\"", ",", "\"\<War\>\""}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Late 17th to mid-18th centuries\>\"", ",", "\"\<France\>\"", ",", 
+        "\"\<Great Britain\>\"", ",", 
+        "\"\<Global empire and European land power\>\"", ",", "\"\<War\>\""}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Late 18th and early 19th centuries\>\"", ",", 
+        "\"\<United Kingdom\>\"", ",", "\"\<France\>\"", ",", 
+        "\"\<Land and sea power in Europe\>\"", ",", "\"\<War\>\""}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Mid-19th century\>\"", ",", "\"\<France and United Kingdom\>\"", 
+        ",", "\"\<Russia\>\"", ",", 
+        "\"\<Global empire, influence in Central Asia and eastern \
+Mediterranean\>\"", ",", "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Mid-19th century\>\"", ",", "\"\<France\>\"", ",", 
+        "\"\<Germany\>\"", ",", "\"\<Land power in Europe\>\"", ",", 
+        "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Late 19th and early 20th centuries\>\"", ",", 
+        "\"\<China and Russia\>\"", ",", "\"\<Japan\>\"", ",", 
+        "\"\<Land and sea power in East Asia\>\"", ",", "\"\<War\>\""}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Early 20th century\>\"", ",", "\"\<United Kingdom\>\"", ",", 
+        "\"\<United States\>\"", ",", 
+        "\"\<Global economic dominance and naval supremacy in the Western \
+Hemisphere\>\"", ",", "\"\<No war\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Early 20th century\>\"", ",", 
+        "\"\<United Kingdom supported by France, Russia\>\"", ",", 
+        "\"\<Germany\>\"", ",", 
+        "\"\<Land power in Europe and global sea power\>\"", ",", 
+        "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Mid-20th century\>\"", ",", "\"\<Soviet Union, France and UK\>\"",
+         ",", "\"\<Germany\>\"", ",", "\"\<Land and sea power in Europe\>\"", 
+        ",", "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Mid-20th century\>\"", ",", "\"\<United States\>\"", ",", 
+        "\"\<Japan\>\"", ",", 
+        "\"\<Sea power and influence in the Asia-Pacific region\>\"", ",", 
+        "\"\<War\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<1940s-1980s\>\"", ",", "\"\<United States\>\"", ",", 
+        "\"\<Soviet Union\>\"", ",", "\"\<Global power\>\"", ",", 
+        "\"\<No war\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<1990s-present\>\"", ",", "\"\<United Kingdom and France\>\"", 
+        ",", "\"\<Germany\>\"", ",", "\"\<Political influence in Europe\>\"", 
+        ",", "\"\<No war\>\""}], "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"period", "=", 
+   RowBox[{"data", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ruling", "=", 
+   RowBox[{"data", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rising", "=", 
+   RowBox[{"data", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "3"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"domain", "=", 
+   RowBox[{"data", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "4"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"data", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "5"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Code", "[", "x_String", "]"}], ":=", 
+   RowBox[{"BitXor", "[", 
+    RowBox[{
+     RowBox[{"Total", "[", 
+      RowBox[{"ToCharacterCode", "[", "x", "]"}], "]"}], ",", "256"}], 
+    "]"}]}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"codedperiod", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "period"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codedruling", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "ruling"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codedrising", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "rising"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"codeddomain", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{"Code", ",", "domain"}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"trainingset", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"codedperiod", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"codedruling", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"codedrising", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"codeddomain", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "}"}], "\[Rule]", 
+       RowBox[{"result", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "codedperiod", "]"}]}], "}"}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "=", 
+    RowBox[{"Classify", "[", "trainingset", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2000s-2020s\>\"", ",", "\"\<United States\>\"", ",", "\"\<China\>\"",
+      ",", "\"\<Sea power and influence in Asia-Pacific region\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2020s-2030s\>\"", ",", "\"\<United States\>\"", ",", 
+     "\"\<Russia\>\"", ",", "\"\<Multi-polar rivalry\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2020s-2030s\>\"", ",", "\"\<United States\>\"", ",", 
+     "\"\<United Kingdom\>\"", ",", "\"\<Multi-polar rivalry\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2020s-2030s\>\"", ",", "\"\<France\>\"", ",", 
+     "\"\<United Kingdom\>\"", ",", "\"\<Multi-polar rivalry\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2030s-2040s\>\"", ",", "\"\<China\>\"", ",", "\"\<India\>\"", ",", 
+     "\"\<Asian rivalry\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2030s-2040s\>\"", ",", "\"\<France\>\"", ",", 
+     "\"\<United States\>\"", ",", "\"\<Multi-polar rivalry\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"new", ",", 
+    RowBox[{"c", "[", "codednew", "]"}]}], "}"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"new", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<2030s-2040s\>\"", ",", "\"\<United States\>\"", ",", 
+     "\"\<Canada\>\"", ",", "\"\<Neighbourly rivalry\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codednew", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Code", ",", "new"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"new", ",", 
+   RowBox[{"c", "[", "codednew", "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.780471362003793*^9, 3.780471364370034*^9}, 
+   3.780471400728017*^9, {3.7804745582946863`*^9, 3.78047456162883*^9}, {
+   3.7804749209386344`*^9, 3.780474942479947*^9}, {3.7814302873419895`*^9, 
+   3.7814302884510665`*^9}, {3.782086372853311*^9, 3.782086421344228*^9}, {
+   3.7820937863198633`*^9, 3.7820938234123096`*^9}, {3.782094054700777*^9, 
+   3.78209407159944*^9}, {3.7821114894195466`*^9, 3.7821115122735395`*^9}, {
+   3.7827052952076807`*^9, 3.782705316219353*^9}, {3.7827057295750914`*^9, 
+   3.7827057444893236`*^9}, {3.783219106926194*^9, 3.783219292150446*^9}, {
+   3.78321959259103*^9, 3.7832195926076336`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"f01e1300-e887-474f-9ccf-7b34f9216d68"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2000s-2020s\"\>", ",", "\<\"United States\"\>", 
+     ",", "\<\"China\"\>", 
+     ",", "\<\"Sea power and influence in Asia-Pacific region\"\>"}], "}"}], 
+   ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077061977`*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"7b73054a-1af0-49fd-9b8b-fdcc0d32682f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2020s-2030s\"\>", ",", "\<\"United States\"\>", 
+     ",", "\<\"Russia\"\>", ",", "\<\"Multi-polar rivalry\"\>"}], "}"}], 
+   ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077061977`*^9},
+ CellLabel->"Out[53]=",ExpressionUUID->"cb077005-6713-44e5-9cd3-fd53a11bd906"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2020s-2030s\"\>", ",", "\<\"United States\"\>", 
+     ",", "\<\"United Kingdom\"\>", ",", "\<\"Multi-polar rivalry\"\>"}], 
+    "}"}], ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077218304`*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"91a1ce4f-9a61-4daa-b52b-57537a0f62bd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2020s-2030s\"\>", ",", "\<\"France\"\>", 
+     ",", "\<\"United Kingdom\"\>", ",", "\<\"Multi-polar rivalry\"\>"}], 
+    "}"}], ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077218304`*^9},
+ CellLabel->"Out[59]=",ExpressionUUID->"06484966-90c9-4932-b519-e604592a7b7f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2030s-2040s\"\>", ",", "\<\"China\"\>", ",", "\<\"India\"\>",
+      ",", "\<\"Asian rivalry\"\>"}], "}"}], ",", "\<\"War\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077218304`*^9},
+ CellLabel->"Out[62]=",ExpressionUUID->"6ac0761f-d2ea-4419-8637-6d50e472f5b2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2030s-2040s\"\>", ",", "\<\"France\"\>", 
+     ",", "\<\"United States\"\>", ",", "\<\"Multi-polar rivalry\"\>"}], 
+    "}"}], ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077218304`*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"0eff9db8-2f82-4bb9-a693-fe90fa4d96b7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"2030s-2040s\"\>", ",", "\<\"United States\"\>", 
+     ",", "\<\"Canada\"\>", ",", "\<\"Neighbourly rivalry\"\>"}], "}"}], 
+   ",", "\<\"War\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7804749375123353`*^9, 3.780474944495058*^9}, 
+   3.781430292512616*^9, 3.7820864321697416`*^9, 3.7820938397265635`*^9, 
+   3.7820940769262967`*^9, 3.7821115271293964`*^9, 3.7821115571848116`*^9, {
+   3.7827053286988473`*^9, 3.7827053325834394`*^9}, 3.782705746788478*^9, 
+   3.7832190547148485`*^9, 3.7832192206354494`*^9, 3.783219255702278*^9, 
+   3.7832192945799932`*^9, 3.7832196077374496`*^9},
+ CellLabel->"Out[68]=",ExpressionUUID->"c4854be1-bbe0-481b-b9d7-f797d25550f8"]
+}, Open  ]]
+},
+WindowSize->{1366, 685},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 11018, 296, 1169, "Input",ExpressionUUID->"f01e1300-e887-474f-9ccf-7b34f9216d68"],
+Cell[11601, 320, 770, 14, 32, "Output",ExpressionUUID->"7b73054a-1af0-49fd-9b8b-fdcc0d32682f"],
+Cell[12374, 336, 738, 13, 32, "Output",ExpressionUUID->"cb077005-6713-44e5-9cd3-fd53a11bd906"],
+Cell[13115, 351, 747, 13, 32, "Output",ExpressionUUID->"91a1ce4f-9a61-4daa-b52b-57537a0f62bd"],
+Cell[13865, 366, 740, 13, 32, "Output",ExpressionUUID->"06484966-90c9-4932-b519-e604592a7b7f"],
+Cell[14608, 381, 722, 13, 32, "Output",ExpressionUUID->"6ac0761f-d2ea-4419-8637-6d50e472f5b2"],
+Cell[15333, 396, 739, 13, 32, "Output",ExpressionUUID->"0eff9db8-2f82-4bb9-a693-fe90fa4d96b7"],
+Cell[16075, 411, 738, 13, 89, "Output",ExpressionUUID->"c4854be1-bbe0-481b-b9d7-f797d25550f8"]
+}, Open  ]]
+}
+]
+*)
+
